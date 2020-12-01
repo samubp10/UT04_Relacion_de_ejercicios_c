@@ -10,43 +10,59 @@ package samuel.ut04_relacion_de_ejercicios_c;
  * @author samuel
  */
 public class Cafetera {
-    private int capacidadMaxima;
-    private int capacidadActual; 
-    
+
+    private double capacidadMaxima;
+    private double cantidadActual;
 
     public Cafetera() {
-        capacidadMaxima = 1000;
-        capacidadActual = 0;
+
+        this.capacidadMaxima = 1000;
+        this.cantidadActual = 0;
     }
 
-    public Cafetera(int capacidadMaxima, int capacidadActual) {
-        this.capacidadMaxima = capacidadMaxima;
-        this.capacidadActual = capacidadActual;
-        if(capacidadActual > capacidadMaxima){
-            capacidadActual = capacidadMaxima;
+    public Cafetera(double capacidadMaxima) {
+        this.capacidadMaxima=capacidadMaxima;
+        this.cantidadActual = capacidadMaxima;
+    }
+
+    public Cafetera(double capacidadMaxima, double cantidadActual) {
+        this.capacidadMaxima=capacidadMaxima;
+        
+        if (cantidadActual > capacidadMaxima) {
+            this.cantidadActual = capacidadMaxima;
+        }else{
+            this.cantidadActual = cantidadActual;
         }
     }
 
-    public Cafetera(int capacidadMaxima) {
-        this.capacidadMaxima = capacidadMaxima;
-        capacidadMaxima = capacidadActual;
+    public void llenarCafetera() {
+        this.cantidadActual = this.capacidadMaxima;
     }
     
-
-
-    public void setCapacidadMaxima(int capacidadMaxima) {
-        this.capacidadMaxima = capacidadMaxima;
+    public void servirTaza(double cafe){
+        if (cafe > this.cantidadActual){
+            vaciarCafetera();
+        }else{
+            this.cantidadActual-=cafe;
+        }
+    }
+    
+    
+    public void vaciarCafetera(){
+        cantidadActual=0;
+    }
+    
+    public void agregarCafe(double cantidadAgregar){
+        if (cantidadAgregar+this.cantidadActual > this.capacidadMaxima){
+            this.cantidadActual = capacidadMaxima;
+        }else{
+            this.cantidadActual+=cantidadAgregar;
+        }
     }
 
-    public void setCapacidadActual(int capacidadActual) {
-        this.capacidadActual = capacidadActual;
+    @Override
+    public String toString() {
+        return "Cafetera{" + "capacidadMaxima=" + this.capacidadMaxima + ", cantidadActual=" + this.cantidadActual + '}';
     }
-
-    public int getCapacidadMaxima() {
-        return capacidadMaxima;
-    }
-
-    public int getCapacidadActual() {
-        return capacidadActual;
-    }
+    
 }
