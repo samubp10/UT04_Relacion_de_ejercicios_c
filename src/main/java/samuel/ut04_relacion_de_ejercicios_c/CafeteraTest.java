@@ -31,5 +31,8 @@ public class CafeteraTest {
         
         cafetera2.agregarCafe(100);
         System.out.println(cafetera2);
+        
+        cafetera2.agregarCafe(1000);
+        System.out.println(cafetera2);
     }
 }

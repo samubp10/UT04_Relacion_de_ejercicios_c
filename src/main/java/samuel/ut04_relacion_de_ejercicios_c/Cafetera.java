@@ -49,7 +49,7 @@ public class Cafetera {
     
     
     public void vaciarCafetera(){
-        cantidadActual=0;
+        this.cantidadActual=0;
     }
     
     public void agregarCafe(double cantidadAgregar){
